@@ -1,5 +1,21 @@
 @import '../../assets/styles/colors.scss';
 
+.featured {
+  border-left: 6px solid $primary-darkCyan;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+  50% {
+    transform: scale3d(1.005, 1.005, 1.005);
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
 .job {
   display: flex;
   padding: 20px 32px;
@@ -8,6 +24,16 @@
   align-items: center;
   box-shadow: 0 0.25rem 0.125rem 0 rgba(0, 0, 0, 0.05);
   border-radius: 8px;
+  transition: all 200ms ease-in-out;
+  transform: scale(1);
+  transform-origin: 50% 50%;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.005) perspective(1px);
+    transform-origin: 51% 51%;
+    box-shadow: 0 0.8rem 0.8rem 0 rgba(0, 0, 0, 0.05);
+  }
 
   .icon {
     margin: 0 24px 0 0;
@@ -17,12 +43,36 @@
     flex: 2;
     display: flex;
     flex-direction: column;
-    .title {
-      color: $primary-darkCyan;
-      margin-bottom: 8px;
-      font-size: 0.8rem;
-      font-weight: bold;
+
+    .title-section {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+
+      .title {
+        color: $primary-darkCyan;
+        font-size: 0.8rem;
+        font-weight: bold;
+      }
+
+      .badges {
+        margin-left: 12px;
+        span {
+          margin: 0 4px;
+          padding: 6px;
+          font-size: 0.5rem;
+          text-transform: uppercase;
+          background-color: $primary-darkCyan;
+          border-radius: 16px;
+          color: #fff;
+
+          &:last-child {
+            background-color: $featured-darkCyan;
+          }
+        }
+      }
     }
+
     h1 {
       font-size: 1.2rem;
       color: $featured-darkCyan;
@@ -72,6 +122,11 @@
         font-weight: bold;
         font-size: 70%;
         border-radius: 6px;
+        transition: all 200ms ease-in-out;
+        &:hover {
+          background-color: $primary-darkCyan;
+          color: #fff;
+        }
       }
     }
   }

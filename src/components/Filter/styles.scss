@@ -1,0 +1,58 @@
+@import '../../assets/styles/colors.scss';
+
+.filter {
+  display: flex;
+  position: absolute;
+  top: calc(-55px - 28px);
+  background-color: #fff;
+  width: 100%;
+  padding: 0px 32px;
+  border-radius: 12px;
+  height: 70px;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0.8rem 0.8rem 0 rgba(0, 0, 0, 0.05);
+  .clean {
+    color: $active-darkCyan;
+    transition: all 200ms ease-in-out;
+    &:hover {
+      color: $primary-darkCyan;
+      cursor: pointer;
+    }
+  }
+  .selected-itens {
+    display: flex;
+    div {
+      display: flex;
+      align-items: center;
+      font-size: 0.8rem;
+      color: $primary-darkCyan;
+      background-color: $filter-background;
+      border-radius: 6px;
+      overflow: hidden;
+      margin: 0 8px;
+      &:first-child {
+        margin-left: 0;
+      }
+
+      span {
+        padding: 8px 12px;
+        font-weight: bold;
+      }
+      svg {
+        color: $filter-background;
+        background-color: $primary-darkCyan;
+        height: 100%;
+        font-size: 1.8rem;
+        padding: 0 4px;
+        transition: all 200ms ease-in-out;
+      }
+      &:hover {
+        cursor: pointer;
+        svg {
+          background-color: $featured-darkCyan;
+        }
+      }
+    }
+  }
+}

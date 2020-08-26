@@ -7,12 +7,18 @@ function JobPost(props) {
   console.log(job);
 
   return (
-    <div className="job">
+    <div className={job.featured ? `job featured` : `job`}>
       <div className="icon">
         <img src={`${job.logo}`} alt={job.company} />
       </div>
       <div className="info">
-        <span className="title">{job.company}</span>
+        <div className="title-section">
+          <span className="title">{job.company}</span>
+          <div className="badges">
+            {job.new && <span>New!</span>}
+            {job.featured && <span>Featured</span>}
+          </div>
+        </div>
         <h1>{job.position}</h1>
         <div className="sub-info">
           <span>{job.postedAt}</span>
