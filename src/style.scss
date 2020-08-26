@@ -1,0 +1,28 @@
+@import './assets/styles/colors.scss';
+
+.App {
+  .header {
+    height: 156px;
+    width: 100%;
+    display: block;
+    background-image: url('./assets/images/bg-header-desktop.svg');
+    background-origin: content-box;
+    background-color: $primary-darkCyan;
+  }
+
+  .list-jobs {
+    max-width: 900px;
+    margin: 80px auto 80px;
+    display: flex;
+    flex-direction: column;
+
+    .job {
+      &:first-child {
+        margin-top: 0;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
