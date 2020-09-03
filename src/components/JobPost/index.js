@@ -1,10 +1,8 @@
 import React from 'react';
 import './styles.scss';
 
-function JobPost(props) {
-  const { job } = props;
-
-  console.log(job);
+const JobPost = ({ job, onFilter }) => {
+  // console.log(job);
 
   return (
     <div className={job.featured ? `job featured` : `job`}>
@@ -28,12 +26,43 @@ function JobPost(props) {
       </div>
       <div className="tags">
         <ul>
-          <li>{job.role}</li>
-          <li>{job.level}</li>
+          <li
+            onClick={() => {
+              onFilter(job.role, 'role');
+            }}
+          >
+            {job.role}
+          </li>
+          <li
+            onClick={() => {
+              onFilter(job.level, 'level');
+            }}
+          >
+            {job.level}
+          </li>
           {job.languages.map((item, key) => {
             return (
               <React.Fragment key={key}>
-                <li>{item}</li>
+                <li
+                  onClick={() => {
+                    onFilter(item, 'languages');
+                  }}
+                >
+                  {item}
+                </li>
+              </React.Fragment>
+            );
+          })}
+          {job.tools.map((item, key) => {
+            return (
+              <React.Fragment key={key}>
+                <li
+                  onClick={() => {
+                    onFilter(item, 'tools');
+                  }}
+                >
+                  {item}
+                </li>
               </React.Fragment>
             );
           })}
@@ -41,6 +70,6 @@ function JobPost(props) {
       </div>
     </div>
   );
-}
+};
 
 export default JobPost;

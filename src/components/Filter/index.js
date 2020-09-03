@@ -2,18 +2,20 @@ import React from 'react';
 import { MdClose } from 'react-icons/md';
 import './styles.scss';
 
-function Filter() {
+function Filter({ itemsFilter }) {
   return (
     <div className="filter">
       <div className="selected-itens">
-        <div>
-          <span>Frontend</span>
-          <MdClose />
-        </div>
-        <div>
-          <span>Senior</span>
-          <MdClose />
-        </div>
+        {itemsFilter.map((item, key) => {
+          return (
+            <React.Fragment key={key}>
+              <div>
+                <span>{item.label}</span>
+                <MdClose />
+              </div>
+            </React.Fragment>
+          );
+        })}
       </div>
       <span className="clean">Clear</span>
     </div>
