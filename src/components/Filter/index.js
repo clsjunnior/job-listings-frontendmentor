@@ -2,7 +2,7 @@ import React from 'react';
 import { MdClose } from 'react-icons/md';
 import './styles.scss';
 
-function Filter({ itemsFilter }) {
+function Filter({ itemsFilter, clearFilter, removeFilter }) {
   return (
     <div className="filter">
       <div className="selected-itens">
@@ -11,13 +11,13 @@ function Filter({ itemsFilter }) {
             <React.Fragment key={key}>
               <div>
                 <span>{item.label}</span>
-                <MdClose />
+                <MdClose onClick={() => removeFilter(item)} />
               </div>
             </React.Fragment>
           );
         })}
       </div>
-      <span className="clean">Clear</span>
+      <span className="clean" onClick={() => clearFilter()}>Clear</span>
     </div>
   );
 }

@@ -2,8 +2,6 @@ import React from 'react';
 import './styles.scss';
 
 const JobPost = ({ job, onFilter }) => {
-  // console.log(job);
-
   return (
     <div className={job.featured ? `job featured` : `job`}>
       <div className="icon">
