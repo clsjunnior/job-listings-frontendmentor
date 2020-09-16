@@ -8,7 +8,7 @@
 </a>
 <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/clsjunnior/job-listings-frontendmentor">
 <img alt="GitHub language top" src="https://img.shields.io/github/languages/top/clsjunnior/job-listings-frontendmentor">
-<img alt="GitHub stars" src="https://img.shields.io/github/stars/clsjunnior/cjdesign-nextjs?style=social">
+<img alt="GitHub stars" src="https://img.shields.io/github/stars/clsjunnior/job-listings-frontendmentor?style=social">
 <img alt="GitHub last commits" src="https://img.shields.io/github/last-commit/clsjunnior/job-listings-frontendmentor">
 </p>
 
