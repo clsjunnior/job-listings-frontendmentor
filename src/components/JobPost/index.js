@@ -26,14 +26,14 @@ const JobPost = ({ job, onFilter }) => {
         <ul>
           <li
             onClick={() => {
-              onFilter(job.role, 'role');
+              onFilter(job.role);
             }}
           >
             {job.role}
           </li>
           <li
             onClick={() => {
-              onFilter(job.level, 'level');
+              onFilter(job.level);
             }}
           >
             {job.level}
@@ -43,7 +43,7 @@ const JobPost = ({ job, onFilter }) => {
               <React.Fragment key={key}>
                 <li
                   onClick={() => {
-                    onFilter(item, 'languages');
+                    onFilter(item);
                   }}
                 >
                   {item}
@@ -56,7 +56,7 @@ const JobPost = ({ job, onFilter }) => {
               <React.Fragment key={key}>
                 <li
                   onClick={() => {
-                    onFilter(item, 'tools');
+                    onFilter(item);
                   }}
                 >
                   {item}

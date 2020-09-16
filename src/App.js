@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import JobPost from './components/JobPost';
 import Filter from './components/Filter';
 import './style.scss';
@@ -12,63 +12,52 @@ const App = () => {
     setList(jobList);
   }
 
-  function filter(label, type) {
-    const object = [...itemsFilter, { label: label, type: type }];
-    setItemFilter(object);
-    const params = { label: label, type: type };
-    filterData(params, 'add');
+  function filter(label) {
+    if (itemsFilter.filter((i) => i.label === label).length === 0)
+      setItemFilter([...itemsFilter, { label: label }]);
+
+    const params = { label: label };
+    filterData(params);
   }
 
-  function filterData(obj, test){
-    console.log(obj)
-    const {label, type} = obj;
-    if(test === 'add'){
-      const filterData = list.filter((item) => {
-        if (type === 'role') return item.role === label;
-        if (type === 'level') return item.level === label;
-        if (type === 'languages')
-          return item.languages.find((f) => {
-            return f === label;
-          });
-        if (type === 'tools')
-          return item.tools.find((t) => {
-            return t === label;
-          });
-      });
-      setList(filterData);
-    }else{
-      
-      const filterData = list.filter((item) => {
-        if (type === 'role') return item.role !== label;
-        if (type === 'level') return item.level !== label;
-        if (type === 'languages')
-          return item.languages.find((f) => {
-            return f !== label;
-          });
-        if (type === 'tools')
-          return item.tools.find((t) => {
-            return t !== label;
-          });
-      });
-      console.log('remove', filterData)
-      setList(filterData);
-    }
+  function filterData(obj) {
+    const { label } = obj;
+
+    const filterData = list.filter((job) => {
+      return (
+        job.role === label ||
+        job.level === label ||
+        job.languages.includes(label) ||
+        job.tools.includes(label)
+      );
+    });
+    setList(filterData);
   }
 
-  function removeFilter(obj){
-    const { label, type } = obj;
-    const params = { label: label, type: type };
-    const remove = itemsFilter.filter(item => { return item.label !== label});
+  function removeFilter(obj) {
+    const { label } = obj;
+    const remove = itemsFilter.filter((item) => {
+      return item.label !== label;
+    });
+
     setItemFilter(remove);
-    console.log(itemsFilter, remove)
 
-    if(remove.length === 0)
-      setList(jobList);
-    else
-      filterData(params, 'remove');
+    let jobFilter = jobList.filter((job) => {
+      return remove.every((c) => {
+        return (
+          job.role === c.label ||
+          job.level === c.label ||
+          job.languages.includes(c.label) ||
+          job.tools.includes(c.label)
+        );
+      });
+    });
+
+    if (remove.length === 0) setList(jobList);
+    else setList(jobFilter);
   }
 
-  function clearFilter(){
+  function clearFilter() {
     setItemFilter([]);
     setList(jobList);
   }
@@ -82,7 +71,13 @@ const App = () => {
       <section className="header"></section>
 
       <section className="list-jobs">
-        {itemsFilter.length > 0 && <Filter itemsFilter={itemsFilter} clearFilter={clearFilter} removeFilter={removeFilter} />}
+        {itemsFilter.length > 0 && (
+          <Filter
+            itemsFilter={itemsFilter}
+            clearFilter={clearFilter}
+            removeFilter={removeFilter}
+          />
+        )}
         {list.map((item, key) => {
           return (
             <React.Fragment key={key}>
