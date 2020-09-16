@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { FiHeart } from 'react-icons/fi';
 import JobPost from './components/JobPost';
 import Filter from './components/Filter';
 import './style.scss';
@@ -86,6 +87,14 @@ const App = () => {
           );
         })}
       </section>
+      <footer>
+        <div>
+          Feito com <FiHeart /> por{' '}
+          <a href="https://github.com/clsjunnior" target="_blank">
+            Celso Junior
+          </a>
+        </div>
+      </footer>
     </div>
   );
 };
