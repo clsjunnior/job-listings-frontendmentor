@@ -1,4 +1,5 @@
 @import '../../assets/styles/colors.scss';
+@import '../../assets/styles/media-query.scss';
 
 .filter {
   display: flex;
@@ -12,9 +13,23 @@
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 0.8rem 0.8rem 0 rgba(0, 0, 0, 0.05);
+  @include mobal() {
+    width: 100%;
+    display: flex;
+    min-height: 70px;
+    padding: 24px;
+    height: auto;
+    position: relative;
+    top: -50px;
+  }
   .clean {
     color: $active-darkCyan;
     transition: all 200ms ease-in-out;
+    @include mobal() {
+      display: flex;
+      flex: 1;
+      justify-content: flex-end;
+    }
     &:hover {
       color: $primary-darkCyan;
       cursor: pointer;
@@ -22,6 +37,12 @@
   }
   .selected-itens {
     display: flex;
+    @include mobal() {
+      flex: 3;
+      flex-wrap: wrap;
+      display: flex;
+      width: 100%;
+    }
     div {
       display: flex;
       align-items: center;
@@ -35,6 +56,14 @@
         margin-left: 0;
       }
 
+      @include mobal() {
+        width: auto;
+        margin: 6px;
+        &:nth-child(2n + 1) {
+          margin-left: 0px;
+        }
+      }
+
       span {
         padding: 8px 12px;
         font-weight: bold;
@@ -46,6 +75,9 @@
         font-size: 1.8rem;
         padding: 0 4px;
         transition: all 200ms ease-in-out;
+        @include mobal() {
+          padding: 0;
+        }
       }
       &:hover {
         cursor: pointer;

@@ -1,4 +1,5 @@
 @import './assets/styles/colors.scss';
+@import './assets/styles/media-query.scss';
 
 .App {
   .header {
@@ -17,9 +18,17 @@
     flex-direction: column;
     position: relative;
 
+    @include mobal() {
+      padding: 24px;
+      margin: 0px auto 80px;
+    }
+
     .job {
       &:first-child {
         margin-top: 0;
+        @include mobal() {
+          margin-top: 24px;
+        }
       }
       &:last-child {
         margin-bottom: 0;

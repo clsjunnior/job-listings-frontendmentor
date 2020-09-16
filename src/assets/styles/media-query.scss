@@ -1,0 +1,7 @@
+$mobal-width: 425px;
+
+@mixin mobal {
+  @media (max-width: #{$mobal-width}) {
+    @content;
+  }
+}

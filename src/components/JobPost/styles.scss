@@ -1,4 +1,5 @@
 @import '../../assets/styles/colors.scss';
+@import '../../assets/styles/media-query.scss';
 
 .featured {
   border-left: 6px solid $primary-darkCyan;
@@ -28,6 +29,11 @@
   transform: scale(1);
   transform-origin: 50% 50%;
 
+  @include mobal() {
+    flex-direction: column;
+    margin: 16px 0 32px;
+  }
+
   &:hover {
     cursor: pointer;
     transform: scale(1.005) perspective(1px);
@@ -37,12 +43,32 @@
 
   .icon {
     margin: 0 24px 0 0;
+    @include mobal {
+      margin: 0;
+      position: absolute;
+      top: -32px;
+      width: 64px;
+      height: 64px;
+      left: 24px;
+    }
+    img {
+      @include mobal {
+        width: 100%;
+      }
+    }
   }
 
   .info {
     flex: 2;
     display: flex;
     flex-direction: column;
+
+    @include mobal {
+      margin-top: 24px;
+      width: 100%;
+      justify-content: start;
+      margin-bottom: 12px;
+    }
 
     .title-section {
       display: flex;
@@ -109,9 +135,21 @@
     justify-content: right;
     flex: 1;
     display: flex;
+    @include mobal {
+      border-top: 1px solid #ececec;
+      padding-top: 12px;
+      width: 100%;
+    }
     ul {
       padding: 0;
       display: flex;
+
+      @include mobal() {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 12px;
+      }
 
       li {
         list-style: none;
@@ -126,6 +164,10 @@
         &:hover {
           background-color: $primary-darkCyan;
           color: #fff;
+        }
+        @include mobal {
+          margin: 0;
+          text-align: center;
         }
       }
     }
