@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "808fa7004779c8992a3bd2269da9d18a",
+    "revision": "b639910064077e0fe039ac89b71f142e",
     "url": "/job-listings-frontendmentor/index.html"
   },
   {
-    "revision": "94283557c2f711b37efd",
-    "url": "/job-listings-frontendmentor/static/css/main.29ffa286.chunk.css"
+    "revision": "8d23db09711023af9487",
+    "url": "/job-listings-frontendmentor/static/css/main.c72783d5.chunk.css"
   },
   {
-    "revision": "cd212ad278e06038e8cd",
-    "url": "/job-listings-frontendmentor/static/js/2.6e8c795c.chunk.js"
+    "revision": "32625ee18625c296d997",
+    "url": "/job-listings-frontendmentor/static/js/2.c1acabc1.chunk.js"
   },
   {
     "revision": "e88a3e95b5364d46e95b35ae8c0dc27d",
-    "url": "/job-listings-frontendmentor/static/js/2.6e8c795c.chunk.js.LICENSE.txt"
+    "url": "/job-listings-frontendmentor/static/js/2.c1acabc1.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "94283557c2f711b37efd",
-    "url": "/job-listings-frontendmentor/static/js/main.243ea644.chunk.js"
+    "revision": "8d23db09711023af9487",
+    "url": "/job-listings-frontendmentor/static/js/main.d0138ac1.chunk.js"
   },
   {
     "revision": "7e1b75219bc10385309e",
