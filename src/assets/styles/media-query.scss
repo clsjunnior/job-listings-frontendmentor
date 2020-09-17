@@ -1,4 +1,4 @@
-$mobal-width: 425px;
+$mobal-width: 600px;
 
 @mixin mobal {
   @media (max-width: #{$mobal-width}) {
